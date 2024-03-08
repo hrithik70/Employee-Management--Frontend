@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserServiceService } from 'src/app/Services/user-service.service';
 
 @Component({
   selector: 'app-user-details',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserDetailsComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private service : UserServiceService,private router: Router) { }
+
+  userDetails : any;
+  isReloadPage :boolean = false;
 
   ngOnInit(): void {
+    this.service.getAllUser().subscribe((Response) =>
+    {
+      this.userDetails = Response;
+    })
   }
+  deleteUserById(userId: any) {
+    this.service.deleteUserById(userId).subscribe();
+    }
+
+    
+
+
 
 }
