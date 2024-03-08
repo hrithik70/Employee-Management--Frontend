@@ -1,0 +1,33 @@
+<div class="alert alert-success" role="alert" *ngIf="isSuccess">
+    User Created Successfully
+</div>
+<div class="alert alert-danger" role="alert" *ngIf="isFail">
+    Error! User not Created
+  </div>
+<div class="flexImpl">
+    <form class="userForm">
+        <div class="mb-3">
+          <label for="username" class="form-label">Full Name</label>
+          <input type="text" class="form-control" id="username" [(ngModel)]="userDataJson.fullName" name="name" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" [(ngModel)]="userDataJson.email" name="email" required>
+        </div>
+        <div class="mb-3">
+            <label for="Mobile" class="form-label">Mobile</label>
+            <input type="number" class="form-control" id="Mobile" maxlength="10" [(ngModel)]="userDataJson.mobileNo" name="mobile" required>
+        </div>
+        <div class="mb-3">
+            <label for="Gender" class="form-label">Gender</label>
+            <select class="form-select " aria-label="Default select example" id="Gender" [(ngModel)]="userDataJson.gender" name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Others">Others</option>
+              </select>
+        </div>
+       <div class="text-center">
+         <button type="submit" class="btn btn-dark" (click)="submitBtn()">Submit</button>
+       </div>
+      </form>
+</div>

@@ -1,0 +1,10 @@
+.flexImpl {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.userForm
+{
+    width: 700px;
+}
