@@ -8,19 +8,21 @@ import { HomePageComponent } from './Pages/home-page/home-page.component';
 import { UserDetailsComponent } from './Pages/user-details/user-details.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { UserUpdateComponent } from './Pages/user-update/user-update.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomePageComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    UserUpdateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserServiceService {
   
-
+  
   constructor(private http : HttpClient) { }
 
   saveUser(userData : any)
@@ -22,4 +22,13 @@ export class UserServiceService {
   deleteUserById(userId: any) {
     return this.http.post("http://localhost:8080/delete/"+userId,null);
   }
+
+  fetchUserById(userId: any) {
+   return this.http.get("http://localhost:8080/fetchUser/"+userId);
+  }
+  
+  updateUser(userId: any, userDataJson: any) {
+    return this.http.post("http://localhost:8080/update/"+userId , userDataJson);
+  }
+  
 }

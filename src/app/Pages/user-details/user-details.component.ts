@@ -8,24 +8,26 @@ import { UserServiceService } from 'src/app/Services/user-service.service';
   styleUrls: ['./user-details.component.css']
 })
 export class UserDetailsComponent implements OnInit {
+  constructor(private service: UserServiceService, private router: Router) { }
 
-
-  constructor(private service : UserServiceService,private router: Router) { }
-
-  userDetails : any;
-  isReloadPage :boolean = false;
+  userDetails: any;
+  isReloadPage: boolean = false;
 
   ngOnInit(): void {
-    this.service.getAllUser().subscribe((Response) =>
-    {
+    this.service.getAllUser().subscribe((Response) => {
       this.userDetails = Response;
     })
   }
   deleteUserById(userId: any) {
-    this.service.deleteUserById(userId).subscribe();
-    }
+    this.service.deleteUserById(userId).subscribe((resp) =>
+    {
+      alert("Deleted Successfully !!")
+    });
+  }
 
-    
+  updateByUserId(userId: any) {
+      this.router.navigate(['userUpdate',userId]);
+    } 
 
 
 
