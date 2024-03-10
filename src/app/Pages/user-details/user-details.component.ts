@@ -11,11 +11,12 @@ export class UserDetailsComponent implements OnInit {
   constructor(private service: UserServiceService, private router: Router) { }
 
   userDetails: any;
-  isReloadPage: boolean = false;
+  isLoaderShow : boolean = true;
 
   ngOnInit(): void {
     this.service.getAllUser().subscribe((Response) => {
       this.userDetails = Response;
+      this.isLoaderShow = false;
     })
   }
   deleteUserById(userId: any) {
